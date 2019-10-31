@@ -25,12 +25,11 @@ class GameListAdapter(private val games:  ArrayList<Game>): RecyclerView.Adapter
         private val Name: TextView = itemView.findViewById(R.id.name)
         private val Image: ImageView = itemView.findViewById(R.id.img)
 
-        fun bind(name: String, image: String){
+        fun bind(name: String, imageURL: String){
+            // Change the TextView name
             Name.text= name
-
-            Picasso.get()
-                .load(image)
-                .into(Image)
+            // Define the ImageView image data
+            Picasso.get().load(imageURL).into(Image)
         }
 
     }
