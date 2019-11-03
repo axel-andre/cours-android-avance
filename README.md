@@ -8,7 +8,8 @@
 
 **Classe** : IWM4
 
-### Features présentes
+### Features
+
 - [x] Récupération des jeux depuis l'API
 - [x] Listing des informations
   - [x] Affichage titre
