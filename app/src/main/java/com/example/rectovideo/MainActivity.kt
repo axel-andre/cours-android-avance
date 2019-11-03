@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = GameListAdapter(games)
         fetchData(this)
+        itemsswipetorefresh.setOnRefreshListener {
+            fetchData(this)
+        }
     }
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
@@ -55,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 
                     games.add(game)
                     recyclerView.adapter?.notifyDataSetChanged()
+                    itemsswipetorefresh.isRefreshing = false
                 }
             },
             Response.ErrorListener { error ->
@@ -62,6 +66,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
         queue.add(jsonObjectRequest)
+
     }
 
     companion object{
